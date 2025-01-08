@@ -1,25 +1,20 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: DaemonSet
 metadata:
-  name: myapp-deployment
+  name: simple-nginx-daemonset
   labels:
-    app: webapp
-    type: front-end
+    app: nginx
 spec:
-  replicas: 3
   selector:
     matchLabels:
-      app: webapp
-      type: front-end
+      app: nginx
   template:
     metadata:
       labels:
-        app: webapp
-        type: front-end
+        app: nginx
     spec:
       containers:
-      - name: nginx-container
-        image: nginx
-      nodeSelector:
-       clr: green
-                          
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
