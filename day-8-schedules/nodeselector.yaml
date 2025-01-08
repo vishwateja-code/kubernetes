@@ -10,4 +10,4 @@ spec:
   - name: nginx-container 
     image: nginx
   nodeSelector:
-    size: Large
+    clr: pink
