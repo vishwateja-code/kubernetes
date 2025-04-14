@@ -75,12 +75,12 @@ kubectl get pods -n kube-system | grep cluster-autoscaler
 
 ---
 
-### **Step 6: Deploy `apache` Application and Increase Replicas**
-Now, deploy a sample application (`apache`) and increase the replica count to test autoscaling.
+### **Step 6: Deploy `nginx` Application and Increase Replicas**
+Now, deploy a sample application (`nginx`) and increase the replica count to test autoscaling.
 
 #### **Scale Up the Application**
 ```sh
-kubectl scale deployment apache --replicas=50
+kubectl scale deployment nginx --replicas=50
 ```
 - This command increases the number of running pods from the default count to **50**.
 - If the current worker nodes **do not have enough resources**, Cluster Autoscaler will scale up and add more nodes.
@@ -92,7 +92,7 @@ Monitor the logs of the deployment and ensure that autoscaling is happening.
 
 #### **Check Application Logs**
 ```sh
-kubectl logs -f deployment/apache
+kubectl logs -f deployment/nginx
 ```
 
 #### **Monitor Cluster Autoscaler Logs**
